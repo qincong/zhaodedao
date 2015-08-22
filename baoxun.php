@@ -2,16 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>上传捡到的物品</title>
+<title>上传丢失的物品</title>
 <link href="upload.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <?php include("daohanglan.php");?>
 	<div class="main">
         <div class="body">
-            <div class="biaoti" > 上传捡到的物品</div>
+            <div class="biaoti" > 上传丢失的物品</div>
             <div class="table">
-            	<form method="POST" name="frmAdd" action="check_goods.php?is_lost=1" enctype="multipart/form-data">
+            	<form method="POST" name="frmAdd" action="check_goods.php?is_lost=0" enctype="multipart/form-data">
                 	<table>
                     	<tr>
                         	<td style="width:200px;height:29px;backgrond:blue;">名称</td>
@@ -20,13 +20,13 @@
                             </td>
                         </tr>
                         <tr>
-                        	<td style="width:200px;height:29px;backgrond:blue;">捡到地点</td>
+                        	<td style="width:200px;height:29px;backgrond:blue;">丢失地点</td>
                             <td style="width:480px;height:29px;backgrund:blue;" >
                             	<input type="text" name="location" size="60"  />
                             </td>
                         </tr>
                          <tr>
-                        	<td style="width:200px;height:29px;backgrond:blue;">捡到时间</td>
+                        	<td style="width:200px;height:29px;backgrond:blue;">丢失时间</td>
                             <td style="width:480px;height:29px;backgrund:blue;" >
                             	<input type="text" name="time" size="60"  />
                             </td>

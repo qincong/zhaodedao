@@ -23,77 +23,14 @@
 			document.getElementById('beijing_05').style.display='block';
 	}
 </script>
-<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery
-/jquery-1.4.min.js"></script>
-<script type="text/javascript"> 
-var tag = 0;
-function chang_slide(i){
-	if(i == 1)
-		$(".down_1").fadeIn("slow");
-	if(i == 2)
-		$(".down_2").fadeIn("slow");
-	if(i == 3)
-		$(".down_3").fadeIn("slow");
-  }
-function set_tag_0(i) {
-	tag=0;
-	if(i == 1)
-		setTimeout(function(){if(tag == 0) $(".down_1").fadeOut("slow");},300);
-	if(i == 2)
-		setTimeout(function(){if(tag == 0) $(".down_2").fadeOut("slow");},300);
-	if(i == 3)
-		setTimeout(function(){if(tag == 0) $(".down_3").fadeOut("slow");},300);
-}
-function set_tag_1() { tag = 1;}
-function change_slide(i) {
-	if(i==1)
-		setTimeout(function(){if(tag == 0) $(".down_1").fadeOut("slow");},500);
-	if(i==2)
-		setTimeout(function(){if(tag == 0) $(".down_2").fadeOut("slow");},500);
-	if(i==3)
-		setTimeout(function(){if(tag == 0) $(".down_3").fadeOut("slow");},500);		
-}
 
-
-
-	
-</script>
 </head>
 
 <body>
+	<?php include("daohanglan.php");?>
 	<div class="main">
     	<div class="topest">
-        	<div class="daohanglan">
-                <div class="logo"><img src="image/logo.png" height=70px;/></div>
-                <div class="woyao" id="zhaodongxi">
-                    <div ><a href="http://www.baidu.com"  class="lianjie lianjie_1 slid_1" onmouseover="chang_slide(1)" onmouseout="change_slide(1)">找失物</a></div>
-                    <div class="down down_1" id="down_11" onmouseover="set_tag_1(1)" onmouseout="set_tag_0(1)" >
-                        <ul>
-                            <li class="lianjie"><a href="about:blank"> 浏览招领信息息</a></li>
-                            <li class="lianjie"><a href="fabu.php">报寻</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="woyao" id="zhaoshizhu">
-                    <div><a href="http://www.baidu.com"  class="lianjie lianjie_1 slid_2" onmouseover="chang_slide(2)" onmouseout="change_slide(2)">找失主</a></div>
-                    <div class="down down_2" onmouseover="set_tag_1(2)" onmouseout="set_tag_0(2)">
-                        <ul>
-                            <li class="lianjie"><a href="about:blank">浏览报寻信息</a></li>
-                            <li class="lianjie"><a href="fabu.php">公布</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="woyao" id="about">
-                    <div><a href="http://www.baidu.com"  class="lianjie lianjie_1 slid_3"   onmouseover="chang_slide(3)" onmouseout="change_slide(3)">帮助</a></div>
-                    <div class="down down_3" onmouseover="set_tag_1(3)" onmouseout="set_tag_0(3)">
-                        <ul>
-                            <li class="lianjie"><a href="about:blank">联系我们</a></li>
-                            <li class="lianjie"><a href="about:blank">本站简介</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="image">		<!--大型滚动画-->
+            <div class="image">		
             	<div	class="big_image">
                 	<img class="width_image" id="beijing_01" src="image/beijing_01.jpg" />
                     <img class="width_image" id="beijing_02" src="image/beijing_02.jpg" />
@@ -119,11 +56,43 @@ function change_slide(i) {
       	</div>
         <div class="latest-image">		<!--利用php输出最近的物品-->
         	<div class="goods">
-            
+            	<div class="goods_image">
+                	<img class="goods_image" src="upload_image/logo.gif" />
+                </div>
+                <div class="goods_name">
+                	钱包
+                </div>
+                <div class="time">
+                	2014年2月17日
+                </div>
+                <div class="position">
+                	shandong province
+                </div>
             </div>
-            <div class="goods">
-            
-            </div>
+            <?php
+            	require_once("sys_conf.inc");
+				$link_id = mysql_connect($DBHOST,$DBUSER,$DBPWD);
+				mysql_select_db($DBNAME);
+				$str = "select * from goods_message order by gid desc;";
+				$result = mysql_query($str,$link_id);
+				for($i=0;$i<2;$i++) {
+				list($gid,$is_lost,$goods_name,$photodir,$location,$gettime,$description,$user_email,$user_phone) = mysql_fetch_row($result);
+				echo "<div class='goods'>
+					<div class='goods_image'>
+						<img class='goods_image' src='upload_image/".$photodir."' />
+					</div>
+					<div class='goods_name'>"
+						.$goods_name."
+					</div>
+					<div class='time'>"
+						.$gettime."
+					</div>
+					<div class='position'>"
+						.$location."
+					</div>
+				</div>"; 
+				}
+			?>
             <div class="goods">
             
             </div>
