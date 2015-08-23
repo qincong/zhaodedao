@@ -6,14 +6,19 @@
 <link href="display.css" rel="stylesheet" type="text/css" />
 <script>
 	function toDetail(i) {
-		location = "http://www.baidu.com?gid="+i;}
+		location = "http://localhost/zhaodedao/detail.php?gid="+i;}
 </script>
 </head>
 <body>
 <?php include("daohanglan.php");?>
 <?php
-	//$search = $_GET['keyword'];
-	//$tag = $_GET['submit'];
+	$search = $_GET['keyword'];
+	$tag = $_GET['submit'];
+	if($tag == "找失物")
+		$isLost = 0;
+	if($tag == "找失主")
+		$isLost = 1;
+	echo $isLost;
 ?>	
 <div class="main">
 	<div class="detail_goods detail_goods_1" onclick="toDetail(1)">
@@ -29,19 +34,49 @@
             <div class="detail_description">黑色的</div>
         </div>
     </div>
-    <div class="detail_goods detail_goods_1" onclick="toDetail()">
-    	<div class="img">
-        	<img class="img" src="image/beijing_03.jpg" />
-        </div>
-        <div class="message">
-        	<div class="detail_name">
-            		钱包
-            </div>
-            <div class="detail_position">建安</div>
-            <div class="detail_time">2014年</div>
-            <div class="detail_description">黑色的</div>
-        </div>
-    </div>
+	<?php
+		require_once("sys_conf.inc");
+		$link_id = mysql_connect($DBHOST,$DBUSER,$DBPWD);
+		mysql_select_db($DBNAME);
+		
+		$str = "select * from goods_message where is_lost = ".$isLost." order by gid desc;";
+		$result = mysql_query($str,$link_id);
+		$n = mysql_num_rows($result);
+		for($i=0;$i<$n;$i++) {
+			list($gid,$is_lost,$goods_name,$photodir,$location,$gettime,$description,$user_email,$user_phone) = mysql_fetch_row($result);
+			if(ereg($search,$goods_name)||ereg($search,$description)) {
+				echo "<div class='detail_goods detail_goods_1' onclick='toDetail(".$gid.")'>
+    					<div class='img'>
+        					<img class='img' src='upload_image/".$photodir."' />
+     				   </div>
+       				 <div class='message'>
+      				  	<div class='detail_name'>
+            				".$goods_name."
+            		</div>
+            		<div class='detail_position'>".$location."</div>
+            		<div class='detail_time'>".$gettime."</div>
+            		<div class='detail_description'>".$description."</div>
+        			</div>
+    				</div>	";
+			}	
+		}
+	?>
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
