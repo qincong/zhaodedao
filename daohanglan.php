@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -57,7 +58,6 @@ function home() {
 	location = "http://localhost/zhaodedao/shouye.php";
 }
 
-
 	
 </script>
 </head>
@@ -67,7 +67,11 @@ function home() {
         	<div class="daohanglan">
                 <div onclick="home();" class="logo"><img src="image/logo.png" height=70px;/></div>
                 <div class="search">
-                
+                	<form name="search" action="display.php">
+                    	<input type="text" name="keyword" style="height:28px;width:300px;">
+                        <input type="submit" name="submit" value="找失物" />
+                        <input type="submit" name="submit" value="找失主" />
+                    </form>
                 </div>
                 <div class="woyao" id="zhaodongxi">
                     <div ><a href="http://www.baidu.com"  class="lianjie lianjie_1 slid_1" onmouseover="chang_slide(1)" onmouseout="change_slide(1)">找失物</a></div>

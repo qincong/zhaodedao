@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+*{padding:0px;
+background-color:f9f9f9;
+margin:0px;}
+.main {
+	position:absolute;
+	margin-left:auto;
+	margin-right:auto;
+	height:1000px;
+	width:100%;
+	background:#999;
+	padding-top:100px;
+	padding-left:100px;}
+.detail_goods {
+	float:left;
+	left:150px;
+	top:100px;
+	margin-top:50px;
+	width:800px;
+	height:200px;
+	background:#CCC;}
+.img {
+	position:absolute;
+	height:200px;
+	width:200px;}
+.message {
+	position:absolute;
+	left:350px;
+	height:100%;
+	width:500px;}
