@@ -21,7 +21,7 @@
 	echo $isLost;
 ?>	
 <div class="main">
-	<div class="detail_goods detail_goods_1" onclick="toDetail(1)">
+	<!--<div class="detail_goods detail_goods_1" onclick="toDetail(1)">
     	<div class="img">
         	<img class="img" src="image/beijing_03.jpg" />
         </div>
@@ -33,7 +33,7 @@
             <div class="detail_time">2014年</div>
             <div class="detail_description">黑色的</div>
         </div>
-    </div>
+    </div>-->
 	<?php
 		require_once("sys_conf.inc");
 		$link_id = mysql_connect($DBHOST,$DBUSER,$DBPWD);
@@ -44,21 +44,40 @@
 		$n = mysql_num_rows($result);
 		for($i=0;$i<$n;$i++) {
 			list($gid,$is_lost,$goods_name,$photodir,$location,$gettime,$description,$user_email,$user_phone) = mysql_fetch_row($result);
-			if(ereg($search,$goods_name)||ereg($search,$description)) {
+			if($search!='all')
+			{ 
+				if(ereg($search,$goods_name)||ereg($search,$description)) {
+					echo "<div class='detail_goods detail_goods_1' onclick='toDetail(".$gid.")'>
+							<div class='img'>
+								<img class='img' src='upload_image/".$photodir."' />
+						   </div>
+						 <div class='message'>
+							<div class='detail_name'>
+								".$goods_name."
+						</div>
+						<div class='detail_position'>".$location."</div>
+						<div class='detail_time'>".$gettime."</div>
+						<div class='detail_description'>".$description."</div>
+						</div>
+						</div>	";
+				}
+			}
+			else 
+			{
 				echo "<div class='detail_goods detail_goods_1' onclick='toDetail(".$gid.")'>
-    					<div class='img'>
-        					<img class='img' src='upload_image/".$photodir."' />
-     				   </div>
-       				 <div class='message'>
-      				  	<div class='detail_name'>
-            				".$goods_name."
-            		</div>
-            		<div class='detail_position'>".$location."</div>
-            		<div class='detail_time'>".$gettime."</div>
-            		<div class='detail_description'>".$description."</div>
-        			</div>
-    				</div>	";
-			}	
+							<div class='img'>
+								<img class='img' src='upload_image/".$photodir."' />
+						   </div>
+						 <div class='message'>
+							<div class='detail_name'>
+								".$goods_name."
+						</div>
+						<div class='detail_position'>".$location."</div>
+						<div class='detail_time'>".$gettime."</div>
+						<div class='detail_description'>".$description."</div>
+						</div>
+						</div>	";
+			}
 		}
 	?>
 </div>

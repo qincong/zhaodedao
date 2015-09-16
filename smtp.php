@@ -11,6 +11,7 @@ class smtp
     var $auth; 
     var $user; 
     var $pass; 
+	var $header;
 
     /* Private Variables */  
     var $sock; 

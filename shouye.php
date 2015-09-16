@@ -118,7 +118,6 @@
         </div>
         <div class="throw">hello</div>
         <div class="wei">
-        asdfafd
         </div>
     </div>
 </body>
