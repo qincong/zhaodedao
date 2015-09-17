@@ -5,6 +5,8 @@
 <title>找得到--在这里找到你丢失的宝贝</title>
 <link href="shouye_yangshi.css" rel="stylesheet" type="text/css" />
 <script>
+	function toDetail(i) {
+		location = "http://localhost/zhaodedao/detail.php?gid="+i;}
 	function change_image(i) {
 		document.getElementById('beijing_01').style.display='none';
 		document.getElementById('beijing_02').style.display='none';
@@ -55,7 +57,7 @@
             <div class="data"></div>
       	</div>
         <div class="latest-image">		<!--利用php输出最近的物品-->
-        	<div class="goods">
+        	<!--<div class="goods">
             	<div class="goods_image">
                 	<img class="goods_image" src="upload_image/logo.gif" />
                 </div>
@@ -68,16 +70,16 @@
                 <div class="position">
                 	shandong province
                 </div>
-            </div>
+            </div>-->
             <?php
             	require_once("sys_conf.inc");
 				$link_id = mysql_connect($DBHOST,$DBUSER,$DBPWD);
 				mysql_select_db($DBNAME);
 				$str = "select * from goods_message order by gid desc;";
 				$result = mysql_query($str,$link_id);
-				for($i=0;$i<2;$i++) {
+				for($i=0;$i<9;$i++) {
 				list($gid,$is_lost,$goods_name,$photodir,$location,$gettime,$description,$user_email,$user_phone) = mysql_fetch_row($result);
-				echo "<div class='goods'>
+				echo "<div class='goods' onclick=toDetail(".$gid.")>
 					<div class='goods_image'>
 						<img class='goods_image' src='upload_image/".$photodir."' />
 					</div>
@@ -93,27 +95,6 @@
 				</div>"; 
 				}
 			?>
-            <div class="goods">
-            
-            </div>
-            <div class="goods">
-            
-            </div>
-            <div class="goods">
-            
-            </div>
-            <div class="goods">
-            
-            </div>
-            <div class="goods">
-            
-            </div>
-            <div class="goods">
-            
-            </div>
-            <div class="goods">
-            
-            </div>
             
         </div>
         <div class="throw">hello</div>

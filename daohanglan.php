@@ -74,7 +74,7 @@ function home() {
                     </form>
                 </div>
                 <div class="woyao" id="zhaodongxi">
-                    <div ><a href="http://www.baidu.com"  class="lianjie lianjie_1 slid_1" onmouseover="chang_slide(1)" onmouseout="change_slide(1)">找失物</a></div>
+                    <div ><a href="http://www.baidu.com"  class="lianjie lianjie_1 slid_1" onmouseover="chang_slide(1)" onmouseout="change_slide(1)">寻物启事</a></div>
                     <div class="down down_1" id="down_11" onmouseover="set_tag_1(1)" onmouseout="set_tag_0(1)" >
                         <ul>
                             <li class="lianjie"><a href="http://localhost/zhaodedao/display.php?keyword=all&submit=找失物"> 浏览招领信息息</a></li>
@@ -83,7 +83,7 @@ function home() {
                     </div>
                 </div>
                 <div class="woyao" id="zhaoshizhu">
-                    <div><a href="http://www.baidu.com"  class="lianjie lianjie_1 slid_2" onmouseover="chang_slide(2)" onmouseout="change_slide(2)">找失主</a></div>
+                    <div><a href="http://www.baidu.com"  class="lianjie lianjie_1 slid_2" onmouseover="chang_slide(2)" onmouseout="change_slide(2)">失物招领</a></div>
                     <div class="down down_2" onmouseover="set_tag_1(2)" onmouseout="set_tag_0(2)">
                         <ul>
                             <li class="lianjie"><a href="http://localhost/zhaodedao/display.php?keyword=all&submit=找失主">浏览报寻信息</a></li>

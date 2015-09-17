@@ -15,9 +15,9 @@
 	$search = $_GET['keyword'];
 	$tag = $_GET['submit'];
 	if($tag == "找失物")
-		$isLost = 0;
-	if($tag == "找失主")
 		$isLost = 1;
+	if($tag == "找失主")
+		$isLost = 0;
 	echo $isLost;
 ?>	
 <div class="main">

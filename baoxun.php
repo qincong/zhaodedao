@@ -39,7 +39,7 @@
                         </tr>
                         <tr>
                         	<td style="width:200px;height:29px;backgrond:blue;">描述</td>
-                            <td style="width:480px;height:29px;backgrund:blue;" >
+                            <td style="height:29px;backgrund:blue;" >
                             	<textarea rows="6" name="description" cols='46.3' wrap='VIRTUAL'></textarea>
                             </td>
                         </tr>
