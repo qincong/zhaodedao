@@ -24,6 +24,12 @@
 		if(i == 5)
 			document.getElementById('beijing_05').style.display='block';
 	}
+	function xunwuqishi() {
+		location = "baoxun.php";
+	}
+	function shiwuzhaoling() {
+		location = "fabu.php";
+	}
 </script>
 
 </head>
@@ -32,7 +38,7 @@
 	<?php include("daohanglan.php");?>
 	<div class="main">
     	<div class="topest">
-            <div class="image">		
+            <div class="image">
             	<div	class="big_image">
                 	<img class="width_image" id="beijing_01" src="image/beijing_01.jpg" />
                     <img class="width_image" id="beijing_02" src="image/beijing_02.jpg" />
@@ -46,8 +52,16 @@
                         <div class="small_button" id="small_button_04" onmouseover="change_image(4)"></div>
                         <div class="small_button" id="small_button_05" onmouseover="change_image(5)"></div>
                     </div>
+                    <div class="kuaisudianji" onclick="xunwuqishi();">
+                    		<img src="image/xunwuqishi.png" />
+                    </div>
+                    <div class="kuaisudianji kuaisudianji_" onclick="shiwuzhaoling();">
+                    	<img src="image/shiwuzhaoling.png" />
+                    </div>
                     <div class="bantouming">
-                    	
+                    	<div class="fabuxinxi">发布信息</div>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -56,28 +70,18 @@
         	<div class="tupian"></div>
             <div class="data"></div>
       	</div>
-        <div class="latest-image">		<!--利用php输出最近的物品-->
-        	<!--<div class="goods">
-            	<div class="goods_image">
-                	<img class="goods_image" src="upload_image/logo.gif" />
-                </div>
-                <div class="goods_name">
-                	钱包
-                </div>
-                <div class="time">
-                	2014年2月17日
-                </div>
-                <div class="position">
-                	shandong province
-                </div>
-            </div>-->
+        <div class="latest-image xunwuqishi">		<!--利用php输出最近的物品-->
+        	<div class="head" >
+            	<div class="xunwu_head">寻物启事</div>
+                <div class="more"><a href="display.php?keyword=all&submit=%E6%89%BE%E5%A4%B1%E4%B8%BB">更多...</a></div>
+            </div>
             <?php
             	require_once("sys_conf.inc");
 				$link_id = mysql_connect($DBHOST,$DBUSER,$DBPWD);
 				mysql_select_db($DBNAME);
-				$str = "select * from goods_message order by gid desc;";
+				$str = "select * from goods_message where is_lost=0 order by gid desc ;";
 				$result = mysql_query($str,$link_id);
-				for($i=0;$i<9;$i++) {
+				for($i=0;$i<8;$i++) {
 				list($gid,$is_lost,$goods_name,$photodir,$location,$gettime,$description,$user_email,$user_phone) = mysql_fetch_row($result);
 				echo "<div class='goods' onclick=toDetail(".$gid.")>
 					<div class='goods_image'>
@@ -97,8 +101,37 @@
 			?>
             
         </div>
-        <div class="throw">hello</div>
-        <div class="wei">
+        <div class="latest-image shiwuzhaoling">		<!--利用php输出最近的物品-->
+        	<div class="head" >
+            	<div class="xunwu_head">失物招领</div>
+                <div class="more"><a href="display.php?keyword=all&submit=%E6%89%BE%E5%A4%B1%E7%89%A9">更多...</a></div>
+            </div>
+            <?php
+            	require_once("sys_conf.inc");
+				$link_id = mysql_connect($DBHOST,$DBUSER,$DBPWD);
+				mysql_select_db($DBNAME);
+				$str = "select * from goods_message where is_lost=1 order by gid desc ;";
+				$result = mysql_query($str,$link_id);
+				for($i=0;$i<8;$i++) {
+				list($gid,$is_lost,$goods_name,$photodir,$location,$gettime,$description,$user_email,$user_phone) = mysql_fetch_row($result);
+				echo "<div class='goods' onclick=toDetail(".$gid.")>
+					<div class='goods_image'>
+						<img class='goods_image' src='upload_image/".$photodir."' />
+					</div>
+					<div class='goods_name'>"
+						.$goods_name."
+					</div>
+					<div class='time'>"
+						.$gettime."
+					</div>
+					<div class='position'>"
+						.$location."
+					</div>
+				</div>"; 
+				}
+			?>
+            
+        </div>
         </div>
     </div>
 </body>

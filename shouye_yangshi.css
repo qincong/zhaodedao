@@ -19,6 +19,7 @@ a {
 .logo {
 	position:absolute;
 	top:0px;
+	cursor:pointer;
 	width:300px;
 	height:48px;
 	margin-left:44px;}
@@ -63,15 +64,16 @@ a {
 	position:absolute;
 	height:250px;}
 .latest-image {
-	height:1100px;
+	height:750px;
 	background-color:#666;
 	position:absolute;
 	top:760px;
-	width:830px;
+	width:1030px;
 	left:100px;} 	
 .goods_image {
 	width:100%;
 	height:200px;
+	cursor:pointer;
 	background:red;}
 .throw {
 	height:1100px;
@@ -166,3 +168,31 @@ a {
 	background:#f9f9f9}
 .textarea {
 	width:500px;}
+.fabuxinxi {
+	font-size:50px;
+	font-family:"幼圆", "隶书", "微软雅黑";
+	color:#EEEE00;
+	font-weight:1000;
+	padding-left:70px;;
+	padding-top:70px;}
+.kuaisudianji {
+	background-color:#FC8005;
+	position:absolute;
+	z-index:21;
+	font-size:20px;
+	font-family:"微软雅黑";
+	right:280px;
+	top:200px;
+	cursor:pointer;
+	}
+.kuaisudianji_ {
+	right:110px;}
+.shiwuzhaoling {
+	top:1600px;}
+.xunwu_head {
+	font-size:24px;}
+.more {
+	position:absolute;
+	font-size:18px;
+	top:0px;
+	right:20px;}

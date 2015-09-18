@@ -21,19 +21,6 @@
 	echo $isLost;
 ?>	
 <div class="main">
-	<!--<div class="detail_goods detail_goods_1" onclick="toDetail(1)">
-    	<div class="img">
-        	<img class="img" src="image/beijing_03.jpg" />
-        </div>
-        <div class="message">
-        	<div class="detail_name">
-            		钱包
-            </div>
-            <div class="detail_position">建安</div>
-            <div class="detail_time">2014年</div>
-            <div class="detail_description">黑色的</div>
-        </div>
-    </div>-->
 	<?php
 		require_once("sys_conf.inc");
 		$link_id = mysql_connect($DBHOST,$DBUSER,$DBPWD);
