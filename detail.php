@@ -21,10 +21,11 @@
 				
 				$str = "select * from goods_message where gid = ".$gid.";";
 				$result = mysql_query($str,$link_id);
-				list($gid,$is_lost,$goods_name,$photodir,$location,$gettime,$description,$user_email,$user_phone) = mysql_fetch_row($result);
+				list($gid,$is_lost,$goods_name,$photodir,$location,$gettime,$description,$user_email,$user_phone) = mysql_fetch_row($result);echo $photodir;
 				echo "<div class='detail_goods detail_goods_1' onclick='toDetail(".$gid.")'>
     					<div class='img'>
-        					<img class='img' src='upload_image/".$photodir."' />
+						
+        					<img class='img' src='upload_image/" .$photodir. "' />
      				   </div>
        				 <div class='message'>
       				  	<div class='detail_name'>

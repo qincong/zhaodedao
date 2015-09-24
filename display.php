@@ -6,7 +6,7 @@
 <link href="display.css" rel="stylesheet" type="text/css" />
 <script>
 	function toDetail(i) {
-		location = "http://localhost/zhaodedao/detail.php?gid="+i;}
+		location = "detail.php?gid="+i;}
 </script>
 </head>
 <body>
@@ -15,25 +15,12 @@
 	$search = $_GET['keyword'];
 	$tag = $_GET['submit'];
 	if($tag == "找失物")
-		$isLost = 0;
-	if($tag == "找失主")
 		$isLost = 1;
+	if($tag == "找失主")
+		$isLost = 0;
 	echo $isLost;
 ?>	
 <div class="main">
-	<!--<div class="detail_goods detail_goods_1" onclick="toDetail(1)">
-    	<div class="img">
-        	<img class="img" src="image/beijing_03.jpg" />
-        </div>
-        <div class="message">
-        	<div class="detail_name">
-            		钱包
-            </div>
-            <div class="detail_position">建安</div>
-            <div class="detail_time">2014年</div>
-            <div class="detail_description">黑色的</div>
-        </div>
-    </div>-->
 	<?php
 		require_once("sys_conf.inc");
 		$link_id = mysql_connect($DBHOST,$DBUSER,$DBPWD);
@@ -49,7 +36,7 @@
 				if(ereg($search,$goods_name)||ereg($search,$description)) {
 					echo "<div class='detail_goods detail_goods_1' onclick='toDetail(".$gid.")'>
 							<div class='img'>
-								<img class='img' src='upload_image/".$photodir."' />
+								<img class='img' src='upload_image/" .$photodir. "' />
 						   </div>
 						 <div class='message'>
 							<div class='detail_name'>
