@@ -6,7 +6,7 @@
 <link href="shouye_yangshi.css" rel="stylesheet" type="text/css" />
 <script>
 	function toDetail(i) {
-		location = "http://localhost/zhaodedao/detail.php?gid="+i;}
+		location = "detail.php?gid="+i;}
 	function change_image(i) {
 		document.getElementById('beijing_01').style.display='none';
 		document.getElementById('beijing_02').style.display='none';
@@ -66,10 +66,7 @@
                 </div>
             </div>
         </div>
-        <div class="xianbai">
-        	<div class="tupian"></div>
-            <div class="data"></div>
-      	</div>
+      
         <div class="latest-image xunwuqishi">		<!--利用php输出最近的物品-->
         	<div class="head" >
             	<div class="xunwu_head">寻物启事</div>

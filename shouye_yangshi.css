@@ -4,7 +4,7 @@
 background-color:f9f9f9;
 margin:0px;}
 .topest {
-	background-color:#999;
+	background-color:#fff;
 	height:416px;}
 a {
 	text-decoration:none;
@@ -42,8 +42,8 @@ a {
 	top:90px;
 	display:none;
 	padding-top:00px;
-	width:190px;;height:297px;
-	background:#CCC}
+	width:190px;;height:80px;
+	background:#fff}
 #zhaodongxi {
 	left:800px;}
 #zhaoshizhu {
@@ -65,9 +65,10 @@ a {
 	height:250px;}
 .latest-image {
 	height:750px;
-	background-color:#666;
+	background-color:#fff;
+	border:1px solid #000;
 	position:absolute;
-	top:760px;
+	top:560px;
 	width:1030px;
 	left:100px;} 	
 .goods_image {
@@ -159,7 +160,7 @@ a {
 	margin-top:40px;
 	width:200px;
 	height:300px;
-	background-color:#00C;}
+	background-color:#CCC;}
 .wei {
 	position:relative;
 	top:1400px;
@@ -188,7 +189,7 @@ a {
 .kuaisudianji_ {
 	right:110px;}
 .shiwuzhaoling {
-	top:1600px;}
+	top:1400px;}
 .xunwu_head {
 	font-size:24px;}
 .more {

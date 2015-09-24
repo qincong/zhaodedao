@@ -6,7 +6,7 @@
 <link href="display.css" rel="stylesheet" type="text/css" />
 <script>
 	function toDetail(i) {
-		location = "http://localhost/zhaodedao/detail.php?gid="+i;}
+		location = "detail.php?gid="+i;}
 </script>
 </head>
 <body>
@@ -36,7 +36,7 @@
 				if(ereg($search,$goods_name)||ereg($search,$description)) {
 					echo "<div class='detail_goods detail_goods_1' onclick='toDetail(".$gid.")'>
 							<div class='img'>
-								<img class='img' src='upload_image/".$photodir."' />
+								<img class='img' src='upload_image/" .$photodir. "' />
 						   </div>
 						 <div class='message'>
 							<div class='detail_name'>
